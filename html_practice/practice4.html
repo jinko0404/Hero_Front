@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연습문제4</title>
+    <style>
+    #container{
+        width: 500px;
+    }
+    ul li{
+        list-style-type:none;
+        margin:10px;
+    }
+    #shipping li label{
+        width:80px;
+        float:left;
+    }
+    input[type =text],input[type = email]{
+        width:300px;
+    }
+</style>
+</head>
+<body>
+    <h1>레드향 주문하기</h1>
+    <div id="container">
+        <form action="">
+            <fieldset>
+                <legend><b>배송정보</b></legend>
+                <ul id = "shipping">
+                    <li>
+                        <label for="user-name"><b>이름</b></label>
+                        <input type="text" id = "user-name" required>
+                    </li>
+                    <li>
+                        <label><b>배송 주소</b></label>
+                        <input type="text" required>
+                    </li>
+                    <li>
+                        <label for="email"><b>이메일</b></label>
+                        <input type="email" id = "email" required>
+                    </li>
+                    <li>
+                        <label><b>연락처</b></label>
+                        <input type="text"placeholder = "하이폰 빼고 입력해주세요.(01012345678)" required>
+                    </li>
+                    <li>
+                        <label for="d-day"><b>배송 지정</b></label>
+                        <input type="date" id="d-day" required>(주문일로부터 최소 3일 이후)
+                    </li>
+                </ul>
+            </fieldset>
+            <input type="submit" value="주문하기">
+            <input type="reset" value="취소하기">
+        </form>
+    </div>
+</body>
+</html>
