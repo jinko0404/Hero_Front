@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2단레이아웃 만들기</title>
+    <style>
+        div{
+            border:1px solid black;
+            box-sizing: border-box;
+        }
+        #headder{
+            width : 100%;
+            height: 100px;
+            background-color: aquamarine;
+        }
+        #main{
+            width : 100%;
+            height: 500px;
+        }
+            #main-layer1{
+                width: 20%;
+                height: 100%;
+                float:left;
+                background-color: aqua;
+            }
+            #main-layer2{
+                width: 80%;
+                height: 100%;
+                float:left;
+                background-color: antiquewhite;
+            }
+        #footer{
+            width : 100%;
+            height: 100px;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <div id = "headder"></div>
+    <div id = "main">
+        <div id="main-layer1"></div>
+        <div id="main-layer2"></div>
+    </div>
+    <div id = footer></div>
+</body>
+</html>

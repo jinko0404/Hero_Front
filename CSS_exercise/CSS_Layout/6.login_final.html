@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>로그인 파이널 레이아웃</title>
+        <link rel="stylesheet" href="./login.CSS">
+        <style>
+            div{
+                box-sizing: border-box;
+                border: 1px solid black;
+            }
+            .headder{
+                width : 100%;
+                height: 100px;
+            }
+                .headder-layer1{
+                    width: 17%;
+                    height: 100%;
+                    float:left;
+                }
+                .headder-layer2{
+                    width: 66%;
+                    height: 100%;
+                    float:left;
+                }
+                .headder-layer3{
+                    width: 17%;
+                    height: 100%;
+                    float:left;
+                }
+            .navi{
+                width: 100%;
+                height: 30px;
+            }
+            .main{
+                width : 100%;
+                height: 500px;
+            }
+                .main-layer1{
+                    width: 15%;
+                    height: 100%;
+                    float:left;
+                }
+                .main-layer2{
+                    width: 53%;
+                    height: 100%;
+                    float:left;
+                }
+                .main-layer3{
+                    width: 32%;
+                    height: 100%;
+                    float:left;
+                }
+            .footer{
+                width : 100%;
+                height: 100px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class = "headder">
+            <div class = "headder-layer1">LOGO</div>
+            <div class = "headder-layer2">TITLE</div>
+            <div class = "headder-layer3">SIDE</div>
+        </div>
+        <div class="navi">NAVIGATOR</div>
+        <div class = "main">
+            <div class="main-layer1">BANNER</div>
+            <div class="main-layer2">CONTENTS</div>
+            <div class="main-layer3">
+                <div class="login">
+                    <div class="login-headder">
+                        <div class="login-headder-left">
+                            <div class="id-field">
+                                <input type="text" placeholder="ID를 입력해주세요.">
+                            </div>
+                            <div class="pw-field">
+                                <input type="password" placeholder="PW를 입력해주세요.">
+                            </div>
+                        </div>
+                        <div class="login-headder-right">
+                            <button class="btn">로그인</button>
+                        </div>
+                    </div>
+                    <div class="login-footer">
+                        <a href="#">회원가입</a>
+                        <a href="#">ID/PW찾기</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class = footer>FOOTER</div>
+    </body>
+</html>

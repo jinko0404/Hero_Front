@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인 폼-테이블</title>
+    <style>
+        table{
+            width:260px;
+            height:2px;
+        }
+        .btn{
+            padding: 10px;
+        }
+        .login-footer{
+            text-align:center;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td colspan="2" class="ID-field">
+                <input type="text" placeholder="ID를 입력해주세요.">
+            </td>
+            <td colspan="2" rowspan="2">
+                <button class="btn">로그인</button>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="PW-field">
+                <input type="password" placeholder="PW를 입력해주세요.">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4" class="login-footer">
+                <a href="#">회원가입</a>
+                <a href="#">ID/PW찾기</a>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

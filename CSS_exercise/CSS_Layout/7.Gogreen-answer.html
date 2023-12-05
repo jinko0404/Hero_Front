@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Go Green</title>
+    <link rel="stylesheet" href="./GoGreen_Answer.CSS">
+    <link rel="stylesheet" href="./login.CSS">
+    <style>
+        div{
+            text-align: center;
+        }
+        #container{
+            width: 1530px;
+            margin: 0 auto;
+        }
+        .main-img{
+            width: 95%;
+            height: 90%;
+            margin-left: 8px;
+        }
+        #aside-top{
+            width: 100%;
+            height: 51%;
+            background-image: url(../../gogreen_img/right_img.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        #aside-bottom{
+            width: 100%;
+            height: 33%;
+            background-image: url(../../gogreen_img/me_chat.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        ul{
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            text-align: center;
+        }
+        ul li{
+            list-style-type:none;
+            float: left;
+            padding-left: 18%;
+            background-color: rgb(86, 194, 86);
+            line-height: 50px;
+        }
+        ul li a{
+            padding:10px 20px;
+            text-decoration: none;
+            display: block;
+        }
+        ul li a:link,ul li a:visited{
+            color: black;
+        }
+        ul li a:hover{
+            background-color: yellowgreen;
+            color: #fff;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Go Green Layout</h1>
+    <div id = "container">
+        <div class = "headder">
+            <div class="headder-layer1">
+                <img src="../../gogreen_img/logo.jpg" alt="로고">
+            </div>
+            <div class="headder-layer2">
+                <img src="../../gogreen_img/mainlogo.jpg" alt="타이틀"
+                width="100%" height="100%">
+            </div>
+            <div class="headder-layer3">SIDE</div>
+        </div>
+        <div class = "navi">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Board</a></li>
+                <li><a href="#">Conract</a></li>
+            </ul>
+        </div>
+        <div class = "main">
+            <div class="main-layer1"></div>
+            <div class="main-layer2">
+                <div id="main-top">
+                    <div id="main-top-left">
+                        <img class="main-img" src="../../gogreen_img/main_img1.jpg" alt="숲">
+                        <div>나무를 심는 사람들</div>
+                    </div>
+                    <div id="main-top-right">
+                        <img class="main-img" src="../../gogreen_img/main_img2.jpg" alt="풀">
+                        <div>아이들에게 녹색미래를</div>
+                    </div>
+                </div>
+                <div id="main-bottom">
+                    <div id="main-bottom-left">
+                        <img class="main-img" src="../../gogreen_img/main_img3.jpg" alt="산토끼">
+                        <div>설악산을 살리는 길</div>
+                    </div>
+                    <div id="main-bottom-right">
+                        <img class="main-img" src="../../gogreen_img/main_img4.jpg" alt="북극곰">
+                        <div>사라지는 북극곰들</div>
+                    </div>
+                </div>
+            </div>
+            <div class="main-layer3">
+                <div class="login">
+                    <div class="login-headder">
+                        <div class="login-headder-left">
+                            <div class="id-field">
+                                <input type="text" placeholder="ID를 입력해주세요.">
+                            </div>
+                            <div class="pw-field">
+                                <input type="password" placeholder="PW를 입력해주세요.">
+                            </div>
+                        </div>
+                        <div class="login-headder-right">
+                            <button class="btn">로그인</button>
+                        </div>
+                    </div>
+                    <div class="login-footer">
+                        <a href="#">회원가입</a>
+                        <a href="#">ID/PW찾기</a>
+                    </div>
+                </div>
+                <div id="aside-top"></div>
+                <div id="aside-bottom"></div>
+            </div>
+        </div>
+        <div class = "footer">
+            <img src="../../gogreen_img/footer.JPG" alt="FOOTER"
+            height="100%">
+        </div>
+
+    </div>
+</body>
+</html>
