@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>테이블 추가하기</title>
+</head>
+<style>
+    table{
+        border: 2px solid black;
+        border-collapse: collapse;
+    }
+        table tr{
+            border: 2px solid black;
+        }
+        table tr th,td{
+            border: 2px solid black;
+        }
+</style>
+<body>
+    <h2>테이블 추가하기</h2>
+    <p>
+        폼 입력양식에 값을 입려갛고 추가 버튼을 누르면
+        입력값들이 아래의 테이블에 한 줄씩 추가되어야함.
+    </p>
+    <form action="#">
+        <label>이름 : <input type="text" id = "name"></label><br>
+        <label>나이 : <input type="text" id = "age"></label><br>
+        <label>성별 : <input type="radio" name = "gender" value="남" id = "male"> 남
+                <input type="radio" name = "gender"  value="여" id = "female"> 여 </label><br>
+        <label>전화번호 : <input type="text" id = "callNumber"></label><br>
+        <label>취미 : <input type="checkbox" name = "hobby" id = "movie" > 영화보기
+        <input type="checkbox" name = "hobby" id = "music"> 음악듣기
+        <input type="checkbox" name = "hobby" id = "sports"> 운동
+        <input type="checkbox" name = "hobby" id = "reading"> 독서
+        <input type="checkbox" name = "hobby" id = "climbing"> 등산</label><br>
+        <button id = "addUser">추가하기</button>
+    </form>
+    <br>
+    <table id = "table">
+        <tr>
+            <th width = 70px>이름</th>
+            <th width = 70px>나이</th>
+            <th width = 70px>성별</th>
+            <th width = 180px>전화번호</th>
+            <th width = 250px>취미</th>
+        </tr>
+    </table>
+    <script>
+        document.querySelector("#addUser")
+        .addEventListener("click",function(){
+            var nameTag = document.querySelector("#name").value;
+            var ageTag = document.querySelector("#age").value;
+            var telTag = document.querySelector("#callNumber").value;
+            var hbTag = document.querySelectorAll("[name = hobby]");
+            var genderTag = document.querySelectorAll("[name = gender]");
+            var tableTag = document.querySelector("#table");
+            var genderVal;
+            var hbVal = "";
+
+            for(var i = 0 ; i < hbTag.length; i++){
+                if(hbTag[i].checked){
+                    if(i == 0){
+                        hbVal += "영화보기 ";
+                    }
+                    else if(i == 1){
+                        hbVal += "음악듣기 ";
+                    }
+                    else if(i == 2){
+                        hbVal += "운동 ";
+                    }
+                    else if(i == 3){
+                        hbVal += "독서 ";
+                    }
+                    else{
+                        hbVal += "등산";
+                    }
+                }
+            }
+            tableTag.innerHTML += "<tr><td>" + nameTag + "</td><td>"
+                                + ageTag + "</td><td>"
+                                + genderVal + "</td><td>"
+                                + telTag+"</td><td>"
+                                + hbVal + "</td></tr>";
+            event.preventDefault();
+
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>팩토리얼 계산하기</title>
+</head>
+<body>
+    <h1>while문을 사용한 팩토리얼 계산</h1>
+    <div id="printOne"></div>
+    <script>
+        var i = prompt("숫자를 입력해주세요", 10);
+        var num = i;
+        var result = 1;
+
+        while(i > 0){
+            result *= i;
+            i--;
+        }
+        document.querySelector("#printOne")
+        .innerHTML = num + "! = " +result;
+    </script>
+</body>
+</html>

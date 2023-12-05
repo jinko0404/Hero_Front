@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>구구단 출력하기</title>
+    <style>
+        table {
+        margin:20px;
+        float:left;
+        }
+        table, th {
+        border:1px solid #ccc;
+        border-collapse:collapse;
+        }
+        th,td { padding:10px 15px;}
+        th {
+            background:#eee;
+        }		
+        td { 
+            border:1px dotted #222;
+        }
+    </style>
+</head>
+<body>
+    
+    <script>
+        var col;
+        var row;
+
+        
+        for(col = 2 ; col < 10 ; col++){
+            document.write("<table>");
+            document.write("<tr><th>" + col + "단</th></tr>")
+            for(row = 1 ; row < 10 ; row++){
+                document.write("<tr><td>" + col + " X " + row + " = "
+                + (row * col) + "</td></tr>");
+            }
+            document.write("</table>");
+        }
+    </script>
+    
+</body>
+</html>

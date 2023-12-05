@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자동 테이블 만들기</title>
+    <style>
+        table{
+            border: 1px solid black;
+        }
+            tr{
+                border: 1px solid black;
+            }
+                td{
+                    border: 1px solid black;
+                    width: 60px;
+                    height: 60px;
+                    text-align: center;
+                }
+    </style>
+</head>
+<body>
+    <script>
+        var row = prompt("테이블의 행의 갯수를 입력해주세요.");//행
+        var col = prompt("테이블의 열의 갯수를 입력해주세요.");//열
+        var count = 1;
+
+        document.write("<table>")
+        for(var row_i = 1; row_i <= row ; row_i++){
+            document.write("<tr>");
+            for(var col_i = 1; col_i <= col ; col_i++){
+                document.write("<td>");
+                    document.write(count);
+                    count++;
+                document.write("</td>");
+            }
+            document.write("</tr>");
+        }
+        document.write("</table>");
+    </script>
+</body>
+</html>

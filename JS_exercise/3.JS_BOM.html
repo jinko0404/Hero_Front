@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>브라우저 객체 모델</title>
+</head>
+<body>
+    <h1>윈도우 객체</h1>
+    <p>
+        window 객체는 자바스크립트의 최상위 개체이며 BOM, DOM으로 나뉜다.
+    </p>
+    <h3>Window 객체</h3>
+    <p>브라우저 창에 대한 설정을 하는 객체</p>
+    <button onclick="callAlert();">alert 확인</button> <br><br>
+    <button onclick="callConfirm();">confirm 확인</button> <br><br>
+    <button onclick="callPrompt();">prompt 확인</button> <br><br>
+    <button onclick="callOpen();">open 확인</button> <br><br>
+    <button onclick="callClose();">close 확인</button> <br><br>
+    <button onclick="callTimeOut();">setTimeOut 확인</button> <br><br>
+    <button onclick="callInterval();">setInterval 확인</button><br><br>
+    <button onclick="callClearInterval();">clearInterval 확인</button><br><br>
+    <button onclick="startClock();">디지털 시계 On</button><br><br>
+    <button onclick="stopClock();">디지털 시계 Off</button><br><br>
+    <div id="clockArea"
+        style="background-color:#ccc;width:300px;height:150px;
+        font-size:30px;border:1px solid #222;color:#222;">
+    </div>
+    <br><br><br>
+    <hr>
+    <h3>navigator 객체</h3>
+    <p>
+        웹 페이지를 실행하고 있는 브라우저에 대한 정보를 가지고 있는 객체
+    </p>
+    <button onclick="checkNavigator();"> navigator 객체 확인</button>
+    <h3>Screen 객체</h3>
+    <p>
+        웹 브라우저 화면이 아닌 운영체제 화면의 속성을 가진 객체
+    </p>
+    <button onclick="checkScreen();">Screen 객체 확인</button>
+    <h3>location 객체</h3>
+    <p>
+        브라우저 주소 표시줄과 관련된 객체(페이지 이동)
+    </p>
+    <button onclick="javascript:location.reload();">location 확인</button><br>
+    <button onclick="checkHref();">href 페이지 이동</button><br>
+    <button onclick="checkAssign();">assign 페이지 이동</button><br>
+    <button onclick="checkReplace();">replace 페이지 이동</button><br>
+    <h3>history 객채</h3>
+    <p>
+        현재 창에서 사용자의 방문 기록을 저장함.<br>
+        뒤로가기, 앞으로가기, 새로고침 가능
+    </p>
+    <button onclick="javascript:console.log(history);">history 객체 확인</button><br>
+    <button onclick="goBack();">뒤로가기확인</button>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <script>
+        var myWindow = null;
+        var eInterval = null;
+        var clockObj = null;
+
+        function goBack(){
+            //go() : 아무 인자도 없을 시 새로고침
+            //go(-1) : 뒤로가기
+            //go(1) 앞으로가기
+            history.go(1);
+            location.href = "./5.JS_Function.html"
+        }
+
+        function checkReplace(){
+            //페이지 이동(패러미터 사용) - 함수
+            //뒤로가기가 불가능한 페이지 이동
+            location.replace("http://www.iei.or.kr");
+        }
+
+        function checkAssign(){
+            //페이지 이동(패러미터 사용) - 함수
+            location.assign ("http://www.iei.or.kr");
+        }
+
+        function checkHref(){
+            //페이지 이동 - 속성
+            location.href = "http://www.iei.or.kr";
+        }
+
+        function checkScreen(){
+            console.log(screen);
+        }
+
+        function checkNavigator(){
+            //책 585p 확인하기
+            console.log(navigator.userAgent);
+            // Mozilla/5.0 (Windows NT 10.0; Win64; x64)
+            // AppleWebKit/537.36 (KHTML, like Gecko)
+            // Chrome/119.0.0.0 Safari/537.36
+        }
+
+        function stopClock(){
+            window.clearInterval(clockObj);
+        }
+
+        function startClock(){
+            var divTag = document.querySelector("#clockArea");
+            clockObj = window.setInterval(function(){
+                var timeDate = new Date();
+                divTag.innerHTML = timeDate.getHours() + ":"
+                                    +timeDate.getMinutes() + ":"
+                                    +timeDate.getSeconds();
+            }, 1000)
+        }
+
+        function callClearInterval(){
+            window.clearInterval(eInterval);
+        }
+        
+        function callInterval(){
+            eInterval = window.setInterval(function(){
+                console.log("1");
+            },1000);
+        }
+
+        function callTimeOut(){
+            window.setTimeout(function(){
+                myWindow.close();
+            },3000);
+        } // 실행코드를 지연시키는 명령어 setTimeOut
+
+        var callClose = function(){
+            myWindow.close();
+        }
+
+        function callOpen(){
+            myWindow =
+            window.open("./2.JS_DOM.html", "pop", "width = 500, height = 400");
+        }
+
+        function callPrompt(){
+            var data = window.prompt("데이터를 입력해주세요");
+            console.log(data)
+        }
+
+        function callConfirm(){
+            var check = window.confirm("확인하시겠습니까?");
+            console.log(check);
+        }
+
+        function callAlert(){
+            window.alert("callAlert");
+        }
+    </script>
+</body>
+</html>

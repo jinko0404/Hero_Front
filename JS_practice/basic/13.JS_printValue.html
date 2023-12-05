@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>입력한 값 출력하기</title>
+    <style>
+        #area{
+            width: 300px;
+            height: 200px;
+            background-color: #ff9;
+            border: 1px solid #66f;
+        }
+    </style>
+</head>
+<body>
+    <h2>입력값출력문제</h2>
+    <label>구매자</label>
+    <input type="text" placeholder="구매자의 이름을 입력하세요">
+    <br><br>
+    <label>상품명</label>
+    <input type="text" id = "pName" placeholder="구매 상품명을 입력하세요">
+    <br><br>
+    <label>가격</label>
+    <input type="text" id = "price" placeholder="구매 가격을 입력하세요">
+    <br><br>
+    <button id = "printValue">입력값 출력하기</button>
+    <br><br>
+    <div id="area"></div>
+    <script>
+        document.querySelector("#printValue").
+        addEventListener("click",function(){
+            var name = document.querySelector("[type = text]").value;
+            var pName = document.querySelector("#pName").value;
+            var price = document.querySelector("#price").value;
+            var area = document.querySelector("#area");
+
+            area.innerHTML = "구매자 이름 : "+ name + "<br>" + 
+                        "상품명 : " + pName + "<br>" +
+                        "가격 : " + price + "<br>";
+        });
+    </script>
+</body>
+</html>

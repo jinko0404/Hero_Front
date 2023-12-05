@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <h1>이벤트핸들러(함수) 테스트</h1>
+    <h3>
+        실습 1: select에서 색이름을 선택하면 body의 배경색이 바뀌도록 함
+    </h3>
+    배경색 선택 : 
+    <select onchange="changeBg(this);" id = "choiceColor">
+        <option value="white" class="W">하얀색</option>
+        <option value="yellow" class="Y">노란색</option>
+        <option value="red" class="R">빨강색</option>
+        <option value="green" class="G">초록색</option>
+        <option value="blue" class="B">파랑색</option>
+    </select>
+    <br><br>
+    <h1 id = "h1Tag">Range값을 변경하면 바뀜</h1>
+    <h3>실습 2 : range의 값이 변경되면 h1태그의 글자크기가 변경된다.</h3>
+    글자크기 선택 : <input type="range" min = "10" max = "100" step = "10" id = "textSize" onchange="changeSize();">
+    <h3>실습 3 : 값을 입력하고 확인 버튼을 누르면 입력값으로 제목 글자를 바꾼다.</h3>
+    <h1 id = "h1Title">제목글자를 바꾸세요</h1>
+    <input type="text" id = "input">
+    <input type="button" value="확인" id="ok">
+    <script>
+        function changeBg(obj){
+            //1. 이벤트가 발생한 태그 : input
+            //2. 이벤트가 발생한 태그에서 값을 가져올 때
+            //=> This키워드 사용 가능
+            //var backColor = document.querySelector("select");
+            var body = document.querySelector("body");
+            body.style.backgroundColor = obj.value;
+        }
+        function changeSize(){
+            var setSize = document.querySelector("#textSize").value;
+            var title = document.querySelector("#h1Tag");
+            title.style.fontSize = Number(setSize) + "pt";
+        }
+        document.querySelector("#ok")
+        .addEventListener("click", function(){
+            var title = document.querySelector("#h1Title");
+            var changeText = document.querySelector("#input");
+            title.innerHTML = changeText.value;
+        });
+    </script>
+</body>
+</html>
