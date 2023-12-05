@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>정규표현식 실습</title>
+    <script src="../../jquery_exercise/jquery-3.7.1.min.js"></script>
+    <style>
+        div{
+            border: 1px solid black;
+            height: 200px;
+            width: 400px;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id = "textIn">
+    <button id="btn-fillter">영어 필터링</button>
+    <div id="printOut"></div>
+    <script>
+        //영어만 필터링해서 제거하기
+        $("#btn-fillter").on("click",function(){
+            var target = $("#textIn").val();
+            var regExp = /[a-z]/gi;
+            var str = "";
+            var str = target.replace(regExp,"");
+
+            $("#printOut").text(str);
+        });
+    </script>
+</body>
+</html>

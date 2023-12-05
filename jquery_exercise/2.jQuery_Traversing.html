@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체 탐색 메소드</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <style>
+        .ancestors *{
+            border: 2px solid lightgray;
+            color: lightgray;
+            padding: 5px;
+            margin: 15px;
+            display: block;
+        }
+        .descendants, .descendants *{
+            border: 2px solid lightgray;
+            color: lightgray;
+            padding: 5px;
+            margin: 15px;
+            display: block;
+        }
+        .siblings *{
+            border: 2px solid lightgray;
+            color: lightgray;
+            padding: 5px;
+            margin: 15px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h1>객체 탐색(jQuery Traversing)</h1>
+    <p>
+        -jQuery Traversing은 jQuery의 순회(탐색) <br>
+        -특정요소를 찾거나 필터링하는 작업이며 대부분 선택자(selector)를
+        사용하지만 1차적으로 선택자에 의해서 찾은 요소들을 다시
+        2차 필터링 하거나 새로운 요소를 추가할 때에는
+        Traverse관련 메소드를 사용한다.
+    </p>
+    <h3>filtering 메소드</h3>
+    <p>
+        first() : 선택된 요소 중 가장 첫번째 요소를 리턴 <br>
+        last() : 선택된 요소 중 가장 마지막 요소를 리턴 <br>
+        eq() : 인덱스 번호와 일치하는 요소 리턴(0부터 시작)
+    </p>
+    <h2>Header-0</h2>
+    <h2>Header-1</h2>
+    <h2>Header-2</h2>
+    <h2>Header-3</h2>
+    <p>
+        filter() : 인자값과 일치하는 요소만 리턴 <br>
+        - $(selector).filter(function(){}) <br>
+        not() : 인자값과 일치하지 않는 요소 리턴
+    </p>
+    <h4 class="h">header-0</h4>
+    <h4 class="h">header-1</h4>
+    <h4 class="hh">header-2</h4>
+    <h4 class="hh">header-3</h4>
+    <h3>Ancestor 메소드</h3>
+    <p>
+        parent() : 선택된 요소의 바로 위 상위 요소만 리턴<br>
+        parents() : 선택된 요소의 모든 상위 요소 리턴<br>
+        parentsUntil(인자) : 선택된 요소(초과) 부터 인자요소(미만)까지
+        범위요소 리턴
+    </p>
+    <div class="ancestors">
+        <div>
+            div(great-grandparent)
+            <ul>
+                ul(grandparent)
+                <li>
+                    li(direct parent)
+                    <span>span</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <h3>
+        Descendants 메소드 : 선택된 요소의 하위 요소들을 선택 할 수
+        있는 메소드
+    </h3>
+    <p>
+        children([인자])
+        <br>1. 선택된 요소의 모든 자손(다음 레벨) 객체를 리턴
+        <br>2. 선택된 요소의 인자와 일치하는 자손(다음 레벨)객체 리턴
+        <br>find(인자) : 선택된 요소의 인자와 일치하는 모든 후손(모든레벨)
+        객체 리턴
+    </p>
+    <div id="div1" class="descendants">
+        div(current element)
+        <p class="child1">
+            p(child)
+            <span>
+                span(grandchild)
+            </span>
+        </p>
+        <p class="child2">
+            p(child)
+            <span>
+                span(grandchild)
+            </span>
+        </p>
+    </div>
+    <h3>Siblings 메소드</h3>
+    <p>
+        같은 레벨에 있는 요소(형제)를 선택할 수 있는 메소드
+        <br><br>
+        siblings([인자])
+        <br>1. 선택된 요소와 같은 레벨(형제)에 잇는 요소 리턴
+        <br>2. 선택된 요소와 같은 레벨(형제) 중 인자와 일치하는 요소리턴
+        (자기 제외)
+        <br>
+        next() : 선택된 요소와 같은 레벨(형제)들중 선택된
+        요소의 다음 한개 요소 리턴<br>
+        nextAll() : 선택된 요소와 같은 레벨(형제)들 중 선택된
+        요소의 다음 모든 요소 리턴<br>
+        nextUntil(인자) : : 선택된 요소와 같은 레벨(형제)들 중 인자까지
+        범위의 모든 요소들을 리턴<br>
+        prev() : 선택된 요소와 같은 레벨(형제)들중 선택된
+        요소의 이전 한개 요소 리턴<br>
+        prevAll() : 선택된 요소와 같은 레벨(형제)들 중 선택된
+        요소의 이전 모든 요소 리턴<br>
+        prevUntil(인자) : 선택된 요소와 같은 레벨(형제)들 중 인자까지
+        범위의 모든 요소들을 리턴<br>
+    </p>
+    <div class="siblings">
+        <div>
+            div(parent)
+            <p>p tag</p>
+            <span>span tag</span>
+            <h2 id="hTag-2">h2 Tag</h2>
+            <h3>h3 Tag</h3>
+            <h4>h4 Tag</h4>
+            <h5>h5 Tag</h5>
+            <h6>h6 Tag</h6>
+            <p>p tag</p>
+        </div>
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <script>
+        //siblings() 메소드
+        var h2Tag = $("#hTag-2");
+        //h2Tag.siblings("p").css("border", "2px solid red");
+        //h2Tag.next().css("border", "2px solid red");
+        //h2Tag.nextAll().css("border", "2px solid red");
+        //$("h5").siblings().css("border", "2px solid tomato");
+        $("h5").prevUntil("p").css("border", "2px solid tomato");
+        //h5 ~ 맨 위 p태그 선택
+        $("h5").nextUntil("p").css("border", "2px solid blue");
+        //h5 ~ 맨 아래 p태그 선택
+
+        //children(), find() 메소드
+        var div1Tag = $("#div1");
+        //find() - 선택자로 지정한 후손과 자손 객체 리턴
+        var divSpan = div1Tag.find("span");
+        divSpan.css("border","1px solid red");
+        //children() - 자손 객체 리턴
+        var divChild1 = div1Tag.children();
+        divChild1.css("border","1px solid blue");
+        //인자값을 넘길 시 특정 자손 태그만 선택 가능
+        //단, 자손으로 존재하는 태그만 가능
+        var divChild2 = div1Tag.children(".child2");
+        divChild2.css("border","1px solid orange");
+
+        // parent(), parents(), parentsUntil(인자값) 메소드
+        var span = $("li span");
+        span.css("border", "1px solid red")
+        var parent = span.parent();
+        parent.css("border", "1px solid blue");
+        var parentUn = span.parentsUntil("ul");
+        parentUn.css("border", "1px solid green");
+
+        //filter 메소드()
+        var h4Tags = $("h10").not(".h");
+        h4Tags.css("background-color","gold");
+        // h4Tags[0].style.backgroundColor = "gold";
+        // h4Tags[1].style.backgroundColor = "gold";
+
+        h4Tags = $("h4").filter(function(index, item){
+            console.log("index : " + index + ", item : " + item.innerHTML);
+            return index % 2 != 0;
+        });
+        h4Tags.css("color", "skyblue");
+
+
+        var h2Tag0 = $("h2").first();
+        console.log(h2Tag0);
+        var h2Tag3 = $("h2").last();
+        var h2Tag1 = $("h2").eq(1);
+        console.log(h2Tag1);
+        console.log(h2Tag0.html());
+        console.log(h2Tag3.html());
+        console.log(h2Tag1.html());
+    </script>
+</body>
+</html>

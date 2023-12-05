@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery each() 메소드3</title>
+    <script src="../../jquery_exercise/jquery-3.7.1.min.js"></script>
+    <style>
+        table{
+            border-collapse: collapse;
+        }
+        td, th{
+            border: 1px solid black;
+            text-align: center;
+        }
+        fieldset {
+            width: 500px;
+            height: 200px;
+        }
+        #result{
+            border: 1px solid black;
+            height: 200px;
+            width: 500px;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>체크</th>
+            <th>이름</th>
+            <th>나이</th>
+            <th>주소</th>
+        </tr>
+        <tr>
+            <td><input type="checkbox"></td>
+            <td>홍길동</td>
+            <td>20</td>
+            <td>율도국</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox"></td>
+            <td>고길동</td>
+            <td>40</td>
+            <td>쌍문동</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox"></td>
+            <td>김유신</td>
+            <td>30</td>
+            <td>서라벌</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox"></td>
+            <td>전우치</td>
+            <td>20</td>
+            <td>한성부</td>
+        </tr>
+    </table>
+    <hr>
+    <label for="">출력</label>
+    <div id="result"></div>
+    <button id="print">출력</button>
+    <script>
+        $("#print").on("click",function(){
+            var students = $("tr");
+            var outputText = "";
+            students.each(function(index, item){
+                if(index > 0){
+                    var trTag = $(item);
+                    var checkbox = trTag.children().first().children().prop('checked');
+                    var name = trTag.children().eq(1).text();
+                    var age = trTag.children().eq(2).text();
+                    var addr = trTag.children().last().text();
+                    if(checkbox){
+                        outputText += name + ", " + age + ", " + addr + "<br>";
+                    }
+                }
+            });
+            $("#result").html(outputText);
+        });
+    </script>
+</body>
+</html>

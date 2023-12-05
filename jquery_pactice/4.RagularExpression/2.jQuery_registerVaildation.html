@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입 유효성 체크</title>
+    <script src="../../jquery_exercise/jquery-3.7.1.min.js"></script>
+    <style>
+        fieldset{
+            width: 400px;
+            height: 400px;
+        }
+        #container{
+            margin: 0 auto;
+            text-align: center;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+    문제 <br>
+    회원가입시 각 필드마다 유효성 검사를 하여 처리할 수 있도록 만들어라. <br>
+    1.Id는 영어 소문자/숫자만 가능해야함(4~12자리이며 소문자로 시작해야함)<br>
+    2.PW는 영어 대/소문자, 숫자만 입력가능해야함(8~12자리)<br>
+    3.pw와 pw_re는 동일해야됨 <br>
+    4.Name은 무조건 한글만 가능해야한다.(최소 2글자 이상) <br>
+    5.주소에는 영어 사용 불가(공백 불가) <br>
+    6.우편번호는 무조건 숫자만 입력 가능해야한다. <br>
+    7.이메일을 @가 포함 되어야한다.(@앞에 영문자, 숫자로 4~12글자) <br>
+    8.전화번호는 첫번째 필드는 010만 입력 가능,
+    두 번째 필드는 3자리 이상 입력가능해야한다. <br>
+    세번째 필드는 무조건 4개 입력해야한다. <br>
+    (단, 모두 숫자만 가능해야한다.)
+    <div id="container">
+        <fieldset>
+            <legend>회원가입</legend>
+            <form action="/member/join.do" method="post">
+                ID : <input type="text" id = "member_id"> <br>
+                pw : <input type="password" id="member-pw"><br>
+                pw_re : <input type="password" id="member-pw-re"><br>
+                name : <input type="text" id = "member_name"><br>
+                address : <input type="text" id = "member_address"><br>
+                Post Number : <input type="text" size="5" id = "post_1">
+                - <input type="text" size="5" id="post_2"><br>
+                E-mail : <input type="email" id = "member_Email"><br>
+                Phone : <input type="text" id="tel1" size="2" maxlength="3">
+                - <input type="text" id="tel2" size="2" maxlength="4">
+                - <input type="text" id="tel3" size="2" maxlength="4"> <br>
+                <input type="submit" value = "작성완료">
+            </form>
+        </fieldset>
+    </div>
+    <script>
+        var idRegExp=/^[a-z0-9]*$/;
+        var pwRegExp=/^[A-Za-z0-9]*$/;
+        var nameRegExp=/^[가-힣]*$/;
+        var addressRegExp = /^[가-힣]*$/;
+        var postNumRegExp = /^[0-9]*$/;
+        var emailRegExp = /^[a-zA-Z0-9]{4,12}@[a-zA-z]+.com$/g;
+        var phoneNum1RegExp = /010/g;
+        var phoneNum2RegExp = /^[0-9]{3,4}$/g;
+        var phoneNum3RegExp = /^[0-9]{4,4}$/g;
+
+        $("form").on("submit",function(){
+            var id = $("#member_id").val();
+            var pw = $("#member-pw").val();
+            var pw_re=$("#member-pw-re").val();
+            var name = $("#member_name").val();
+            var address = $("#member_address").val();
+            var postNum1 = $("#post_1").val();
+            var postNum2 = $("#post_2").val();
+            var email = $("#member_Email").val();
+            var phoneNum1 = $("#tel1").val();
+            var phoneNum2 = $("#tel2").val();
+            var phoneNum3 = $("#tel3").val();
+
+            if((!idRegExp.test(id) || id.length > 12 || id.length < 4)){
+                alert("아이디 양식에 맞지 않습니다.");
+                return false;
+            }
+            else if((!pwRegExp.test(pw) || pw.length > 12 || pw.length < 8)){
+                alert("비밀번호 양식에 맞지 않습니다.");
+                return false;
+            }
+            else if((pw != pw_re)){
+                alert("비밀번호 확인을 확인해주세요");
+                return false;
+            }
+            else if((!nameRegExp.test(name) || name.length < 2)){
+                alert("이름은 한글로 두 글자 이상 써주세요.");
+                return false;
+            }
+            else if(!addressRegExp.test(address)){
+                alert("주소명은 한글로 공백없이 써주세요.");
+                return false;
+            }
+            else if((!postNumRegExp.test(postNum1) || !postNumRegExp.test(postNum2))){
+                alert("우편번호는 숫자만 입력해주세요");
+                return false;
+            }
+            else if(!emailRegExp.test(email)){
+                alert("이메일 양식에 맞춰주세요");
+                return false;
+            }
+            else if((!phoneNum1RegExp.test(phoneNum1) 
+            || !phoneNum2RegExp.test(phoneNum2))
+            || !phoneNum3RegExp.test(phoneNum3)){
+                alert("전화번호를 다시 확인해주세요.");
+                return false;
+            }
+            else{
+                return true;
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 조작 메소드</title>
+    <script src="../../jquery_exercise/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <div>
+        <input type="file" name="" id="">
+        <input type="button" value="추가" id="add">
+        <input type="button" value="삭제" id="remove">
+    </div>
+    <script>
+        $("#add").on("click",function(){
+            $("<input type=\"file\"><br>").insertAfter("[value=삭제]");
+        });
+        $("#remove").on("click",function(){
+            var input = $("input[type=file]");
+            if(input.length > 1){
+            $("input[type=file]:last").remove();
+            }
+        });
+    </script>
+</body>
+</html>

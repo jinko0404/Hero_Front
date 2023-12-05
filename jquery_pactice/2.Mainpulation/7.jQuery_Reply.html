@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery 객체 조작 메소드3</title>
+    <script src="../../jquery_exercise/jquery-3.7.1.min.js"></script>
+    <style>
+        table{border-collapse: collapse;}
+        th,tr,td{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <input type="text">
+            <input type="button" value="작성" id="add">
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <th>번호</th>
+            <th>내용</th>
+            <th>작성자</th>
+        </tr>
+    </table>
+    <script>
+        var num = 0;
+        $("#add").on("click",function(){
+            num++;
+            $("table:last").append("<tr>" +
+                "<td>" + num + "</td>" +
+                "<td>" + $("input[type=text]").val() + "</td>" +
+                "<td>" + "이용자" + "</td>" +
+                "</tr>");
+        });
+    </script>
+</body>
+</html>

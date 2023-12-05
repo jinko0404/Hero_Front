@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery_exercise/jquery-3.7.1.min.js"></script>
+    <style>
+        table{
+            border-collapse: collapse;
+        }
+        td,th{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>구분</th>
+            <th>A</th>
+            <th>B</th>
+        </tr>
+        <tr>
+            <td>가</td>
+            <td>10</td>
+            <td>10</td>
+        </tr>
+        <tr>
+            <td>나</td>
+            <td>20</td>
+            <td>20</td>
+        </tr>
+        <tr>
+            <td>계</td>
+            <td>30</td>
+            <td>30</td>
+        </tr>
+    </table>
+    <input type="button" value="[가]색 변경" onclick = "click1();">
+    <input type="button" value="[나]색 변경" onclick = "click2();">
+    <input type="button" value="[A]색 변경" onclick = "click3();">
+    <input type="button" value="[B]색 변경" onclick = "click4();">
+    <input type="button" value="초기화" onclick = "click5();">
+    <script>
+        //제이쿼리의 효과로
+        //document.querySelector와 document.querySelectorAll은 $로
+        //addEventListener는 on으로 바뀐다.
+        function click1(){
+            $("td").css("color","black");
+            $("tr:eq(1)").children("td").not(":first-child").css("color","red");
+        }
+        function click2(){
+            $("td").css("color","black");
+            $("tr:eq(2)").children("td").not(":first-child").css("color","red");
+        }
+        function click3(){
+            $("td").css("color","black");
+            $("tr:eq(1)").children("td:eq(1)").css("color","red");
+            $("tr:eq(2)").children("td:eq(1)").css("color","red");
+        }
+        function click4(){
+            $("td").css("color","black");
+            $("tr:eq(1)").children("td:eq(2)").css("color","red");
+            $("tr:eq(2)").children("td:eq(2)").css("color","red");
+        }
+        function click5(){
+            $("td").css("color","black");
+        }
+    </script>
+</body>
+</html>

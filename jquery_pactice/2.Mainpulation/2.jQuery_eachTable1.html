@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery each() 메소드2</title>
+    <script src="../../jquery_exercise/jquery-3.7.1.min.js"></script>
+    <style>
+        table{
+            border-collapse: collapse;
+        }
+        td, th{
+            border: 1px solid black;
+        }
+        fieldset {
+            width: 500px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    문제. <br>
+    학생정보 출력 버튼을 클릭시 테이블에 있는 학생 정보가<br>
+    fieldset 안에 출력되도록 만드시오 <br>
+    <table>
+        <tr>
+            <th>이름</th>
+            <th>나이</th>
+            <th>주소</th>
+        </tr>
+        <tr>
+            <td>홍길동</td>
+            <td>20</td>
+            <td>율도국</td>
+        </tr>
+        <tr>
+            <td>고길동</td>
+            <td>40</td>
+            <td>쌍문동</td>
+        </tr>
+        <tr>
+            <td>김유신</td>
+            <td>30</td>
+            <td>서라벌</td>
+        </tr>
+        <tr>
+            <td>전우치</td>
+            <td>20</td>
+            <td>한성부</td>
+        </tr>
+    </table>
+    <fieldset>
+        <legend>출력</legend>
+        <span id="span1"></span>
+    </fieldset>
+    <button id="btn">학생정보 출력</button>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <script>
+        $("#btn").on("click",function(){
+            var students = $("tr");
+            var outputText = "";
+            students.each(function(index, item){
+                if(index > 0){
+                var trTag = $(item);
+                var name = trTag.children().first().text();
+                var age = trTag.children().eq(1).text();
+                var addr = trTag.children().last().text();
+                outputText += name + ", " + age + ", " + addr + "<br>";
+                }
+                // if (index % 3 === 2) {
+                //     outputText += "<br>";
+                // }
+                // else{
+                //     outputText += ", ";
+                // }
+            });
+            $("#span1").html(outputText);
+        });
+    </script>
+</body>
+</html>

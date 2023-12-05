@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트실습</title>
+    <script src="../../jquery_exercise/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <select name="number" id="number">
+        <option value="">==선택==</option>
+        <option value="1">1번</option>
+        <option value="2">2번</option>
+        <option value="3">3번</option>
+        <option value="4">4번</option>
+    </select>
+    <script>
+        $("#number").on("change", function(){
+            var opt1 = $("option:selected").val();
+            var opt2 = $("option:selected").html();
+            console.log(opt1);
+            console.log(opt2);
+        });
+    </script>
+</body>
+</html>

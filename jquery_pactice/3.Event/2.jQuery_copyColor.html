@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트실습2</title>
+    <script src="../../jquery_exercise/jquery-3.7.1.min.js"></script>
+    <style>
+        div{
+            border: 2px solid #222;
+            width: 100px;
+            height: 100px;
+            margin: 5px;
+            float: left;
+        }
+        fieldset{
+            width: 800px;
+            margin: 30px;
+        }
+    </style>
+</head>
+<body>
+    문제 <br>
+    다음 2개의 색깔 중 선택한 색깔이 복사될 수 있도록 구현하여라 <br>
+    <fieldset>
+        <legend>7개의 색깔 중 선택하세요.</legend>
+        <div id="img1" style="background-color: red;"></div>
+        <div id="img2" style="background-color: orange;"></div>
+        <div id="img3" style="background-color: yellow;"></div>
+        <div id="img4" style="background-color: green;"></div>
+        <div id="img5" style="background-color: blue;"></div>
+        <div id="img6" style="background-color: navy;"></div>
+        <div id="img7" style="background-color: purple;"></div>
+    </fieldset>
+    <fieldset>
+        <legend>복사되는 공간</legend>
+        <div id = "1th"></div>
+        <div id = "2th"></div>
+        <div id = "3th"></div>
+        <div id = "4th"></div>
+        <div id = "5th"></div>
+        <div id = "6th"></div>
+        <div id = "7th"></div>
+    </fieldset>
+    <button id="reset">초기화</button>
+    <script>
+        var choiceColor;
+
+        $("#img1").on("click",function(){
+            choiceColor = "red";
+        });
+        $("#img2").on("click",function(){
+            choiceColor = "orange";
+        });
+
+        $("#img3").on("click",function(){
+            choiceColor = "yellow";
+        });
+
+        $("#img4").on("click",function(){
+            choiceColor = "green";
+        });
+
+        $("#img5").on("click",function(){
+            choiceColor = "blue";
+        });
+
+        $("#img6").on("click",function(){
+            choiceColor = "navy";
+        });
+
+        $("#img7").on("click",function(){
+            choiceColor = "purple";
+        });
+        
+        $("div[id$=th]").on("click",function(){
+            $(this).css("background-color",choiceColor);
+        });
+        $("#reset").on("click",function(){
+            $("div[id$=th]").css("background-color","");
+        });
+    </script>
+</body>
+</html>

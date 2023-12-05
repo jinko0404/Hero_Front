@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체 조작 메소드</title>
+    <script src="../../jquery_exercise/jquery-3.7.1.min.js"></script>
+    <style>
+        th, td{border: 1px solid black;}
+    </style>
+</head>
+<body>
+    제목 : <input type="text" name="title"> <br>
+    내용 : <input type="text" name="content"> <br>
+    작성자 : <input type="text" name="writer"> <br>
+    <input type="button" value="테이블에 추가" id="add"><br>
+    <input type="button" value="테이블 삭제" id="remove"><br>
+    <table>
+        <tr>
+            <td>제목</td>
+            <td>내용</td>
+            <td>작성자</td>
+        </tr>
+    </table>
+    <script>
+        $("#add").on("click",function(){
+            var title = $("input[name=title]").val();
+            var content = $("input[name=content]").val();
+            var writer = $("input[name=writer]").val();
+
+            $("table").append("<tr>" + 
+                "<td>" + title + "</td>" +
+                "<td>" + content + "</td>" +
+                "<td>" + writer + "</td>" +
+                "</tr>");
+        });
+        $("#remove").on("click",function(){
+            if($("table tr").length > 1){
+                $("table tr:last").remove();
+            }
+        });
+    </script>
+</body>
+</html>
